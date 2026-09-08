@@ -1,0 +1,41 @@
+name: Daily Job Alert Pipeline
+
+on:
+  schedule:
+    - cron: "0 13 * * *"   # 08:00 America/Bogota (UTC-5)
+  workflow_dispatch:        # botón manual
+
+permissions:
+  contents: write            # el GITHUB_TOKEN es read-only por defecto; sin esto el push falla con 403
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run pipeline
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          ALERT_TO: ${{ secrets.ALERT_TO }}
+        run: python main.py
+
+      - name: Commit updated state
+        run: |
+          git config user.name "Job Alert Pipeline Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add seen_links.json job_history.json source_health.json 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "Update job alert state [skip ci]"
+          git push
