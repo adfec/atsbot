@@ -1,0 +1,143 @@
+# config.yaml
+# Empresas objetivo: solo el slug. El ATS se resuelve automáticamente vía
+# src/ats_clients/discovery.py (Nivel 1: Greenhouse/Lever/Ashby/SmartRecruiters/
+# Recruitee/Workable). Las marcadas con "workday:" ya tienen ATS conocido
+# (Workday no se puede descubrir solo por slug, necesita el tenant).
+#
+# confidence:
+#   confirmed  -> ATS verificado manualmente en esta sesión de research
+#   candidate  -> empresa con señales de contratación en Colombia/LatAm,
+#                 pero el ATS/vigencia debe resolverla el discovery en runtime
+
+companies:
+  # --- Fintech / consolidadas LatAm ---
+  - slug: rappi
+    ats: workday
+    workday_tenant: "rappi.wd12.myworkdayjobs.com/Rappi_jobs"
+    confidence: confirmed
+  - slug: addi
+    confidence: confirmed   # Ashby (jobs.ashbyhq.com/addi)
+  - slug: bold
+    confidence: candidate
+  - slug: habi
+    confidence: candidate
+  - slug: truora
+    confidence: candidate
+  - slug: finkargo
+    confidence: candidate
+  - slug: akua
+    confidence: candidate
+  - slug: siigo
+    confidence: candidate
+  - slug: clara
+    confidence: candidate
+  - slug: kavak
+    confidence: candidate
+  - slug: nubank
+    confidence: candidate
+  - slug: uala
+    confidence: candidate
+  - slug: dlocal
+    confidence: candidate
+  - slug: clip
+    confidence: candidate
+  - slug: mercadolibre
+    confidence: candidate
+
+  # --- Edtech ---
+  - slug: platzi
+    confidence: candidate
+  - slug: crehana
+    confidence: candidate
+
+  # --- SaaS B2B / B2C LatAm ---
+  - slug: frubana
+    confidence: candidate
+  - slug: merqueo
+    confidence: candidate
+  - slug: tul
+    confidence: candidate
+  - slug: runa
+    confidence: candidate
+  - slug: yuno
+    confidence: candidate
+  - slug: kushki
+    confidence: candidate
+  - slug: vtex
+    confidence: candidate
+  - slug: despegar
+    confidence: candidate
+
+  # --- Globales/EEUU con contratación confirmada en Colombia ---
+  - slug: twilio
+    confidence: confirmed   # Greenhouse (job-boards.greenhouse.io/twilio)
+  - slug: sezzle
+    confidence: confirmed   # Greenhouse (boards.greenhouse.io/sezzle), BNPL con fuerte hiring LATAM
+  - slug: binance
+    confidence: confirmed   # Lever (jobs.lever.co/binance), roles remotos en Bogotá
+  - slug: caseware
+    confidence: confirmed   # Lever (jobs.lever.co/caseware), fintech canadiense, equipo dev en Bogotá/Medellín
+  - slug: godaddy
+    confidence: candidate
+  - slug: sonatype
+    confidence: candidate
+
+  # --- Consultoras / IT services con sede física en Colombia ---
+  - slug: globant
+    confidence: confirmed   # oficinas propias en Bogotá, Medellín, Barranquilla
+  - slug: encora
+    confidence: confirmed   # remote-first, alta concentración LatAm
+  - slug: endava
+    confidence: confirmed   # sedes en Bogotá, Cali, Medellín
+  - slug: nearsure
+    confidence: confirmed   # parte de Nortal, 600+ profesionales LatAm
+  - slug: thoughtworks
+    confidence: candidate
+  - slug: accenture
+    confidence: candidate
+  - slug: aspenview
+    confidence: candidate
+
+# Roles/keywords para scoring (no es filtro binario: cada job se puntúa
+# contra cada familia de rol y se ordena por relevancia).
+roles:
+  engineering_manager:
+    keywords:
+      - "engineering manager"
+      - "head of engineering"
+      - "director of engineering"
+      - "engineering lead"
+      - "eng manager"
+  solutions_architect:
+    keywords:
+      - "solutions architect"
+      - "platform architect"
+      - "principal architect"
+      - "technical architect"
+      - "software architect"
+  senior_swe:
+    keywords:
+      - "senior software engineer"
+      - "senior backend engineer"
+      - "staff engineer"
+      - "senior java developer"
+      - "senior python developer"
+      - "senior full stack"
+
+exclude_keywords:
+  - "junior"
+  - "intern"
+  - "internship"
+  - "trainee"
+
+# Ventana en días para considerar un registro "vigente" (no solo "nuevo")
+rolling_window_days: 10
+
+# Fallback por rol (ver src/role_search.py): fuentes públicas de agregadores
+# que se pueden buscar directamente por keyword, sin depender de que la
+# empresa esté en la lista de arriba. La decisión de si el resultado es
+# relevante/compatible queda por cuenta del usuario -- este mecanismo
+# solo amplía las posibilidades, no reemplaza el filtro por empresa.
+role_search:
+  enabled: true
+  remote_only: true
