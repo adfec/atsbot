@@ -86,11 +86,17 @@ def main():
 
     # 4. Notificación
     if new_company_jobs or new_role_search_jobs or alarms:
-        html_body = notify.render_digest_html(new_company_jobs, new_role_search_jobs, alarms)
-        notify.send_email(
+        #html_body = notify.render_digest_html(new_company_jobs, new_role_search_jobs, alarms)
+        """notify.send_email(
             subject=f"Alertas de empleo — {len(new_company_jobs)} empresas / "
                     f"{len(new_role_search_jobs)} por rol",
             html_body=html_body,
+        )"""
+        md_body = notify.render_digest_markdown(new_company_jobs, new_role_search_jobs, alarms)
+        notify.post_digest(
+            subject=f"Alertas de empleo — {len(new_company_jobs)} empresas / "
+                    f"{len(new_role_search_jobs)} por rol",
+            markdown_body=md_body,
         )
         print(f"Enviado: {len(new_company_jobs)} de empresas, "
               f"{len(new_role_search_jobs)} por rol, {len(alarms)} alarmas.")

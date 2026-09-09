@@ -21,7 +21,7 @@ con tres mejoras principales sobre el original:
    empresas no trae resultados (o simplemente para ampliar el universo),
    el pipeline también busca directamente por keyword en agregadores
    públicos (Remotive, Arbeitnow), sin depender de que la empresa esté
-   en la lista curada. Estos resultados se marcan aparte en el email —
+   en la lista curada. Estos resultados se marcan aparte en el digest —
    la decisión de compatibilidad queda del lado del usuario.
 
 Además, mantiene lo que sí funcionaba bien del original: estado en git
@@ -29,26 +29,32 @@ Además, mantiene lo que sí funcionaba bien del original: estado en git
 de salud de fuente (si un ATS que normalmente responde cae a 0, se
 reporta como posible fallo, no como "no hay vacantes hoy").
 
+La entrega es 100% nativa de GitHub: el digest se publica como
+comentario en un Issue fijo del propio repo usando el `GITHUB_TOKEN`
+que Actions ya provee en cada run — sin SMTP, sin app passwords, sin
+ninguna credencial de cuenta personal.
+
 ## Estructura
 
 ```
 ats-pipeline/
-├── config.yaml                  # empresas objetivo + roles/keywords
+├── config.yaml                     # empresas objetivo + roles/keywords
 ├── requirements.txt
-├── main.py                      # orquestador
+├── main.py                         # orquestador
 ├── src/
-│   ├── ats_clients/
-│   │   ├── base.py              # NormalizedJob (esquema común)
-│   │   └── discovery.py         # auto-descubrimiento + normalización por ATS
-│   ├── role_search.py           # fallback: búsqueda por rol en fuente abierta
-│   ├── filter.py                # scoring por rol/keyword
-│   ├── state.py                 # dedupe + ventana rodante (git-como-DB)
-│   ├── health.py                # alarma de fuente en 0
-│   └── notify.py                # email HTML
-├── .github/workflows/daily.yml  # cron diario + commit de estado
-├── seen_links.json              # estado (lo actualiza el propio workflow)
-├── job_history.json             # estado
-└── source_health.json           # estado
+│ ├── ats_clients/
+│ │ ├── base.py                     # NormalizedJob (esquema común)
+│ │ └── discovery.py                # auto-descubrimiento + normalización por ATS
+│ ├── role_search.py                # fallback: búsqueda por rol en fuente abierta
+│ ├── filter.py                     # scoring por rol/keyword
+│ ├── state.py                      # dedupe + ventana rodante (git-como-DB)
+│ ├── health.py                     # alarma de fuente en 0
+│ └── notify.py                     # publica el digest como comentario en un Issue de GitHub
+├── .github/workflows/daily.yml     # cron diario + commit de estado
+├── seen_links.json                 # estado (lo actualiza el propio workflow)
+├── job_history.json                # estado
+├── source_health.json              # estado
+└── digest_issue.json               # estado: número del issue fijo del digest
 ```
 
 ## Setup
@@ -56,7 +62,7 @@ ats-pipeline/
 1. Crea el repo en GitHub (vacío, sin README/gitignore desde la web para
    no chocar con los que ya trae esta carpeta) y súbele estos archivos:
 
-   ```bash
+```bash
    cd ats-pipeline
    git init
    git add .
@@ -64,32 +70,41 @@ ats-pipeline/
    git branch -M main
    git remote add origin https://github.com/<tu-usuario>/<tu-repo>.git
    git push -u origin main
-   ```
+```
 
    (Con GitHub CLI en vez de crear el repo desde la web:
    `gh repo create <tu-repo> --private --source=. --push`)
 
-2. En GitHub, ve a *Settings → Secrets and variables → Actions* y crea:
-   - `SMTP_HOST` (ej. `smtp.gmail.com`)
-   - `SMTP_PORT` (ej. `587`)
-   - `SMTP_USER` (tu correo)
-   - `SMTP_PASS` (app password, no tu contraseña normal — para Gmail
-     hay que generarlo en la configuración de seguridad de la cuenta)
-   - `ALERT_TO` (a quién se envía el digest; puede ser el mismo `SMTP_USER`)
-3. Al hacer push, el workflow ya queda registrado en la pestaña *Actions*
-   del repo (no requiere ningún paso extra de "activación"). Corre solo
-   a las 08:00 America/Bogota, y también puedes dispararlo manualmente
-   desde *Actions → Daily Job Alert Pipeline → Run workflow*.
-4. Verifica el primer run ahí mismo: si falla en el paso "Commit updated
-   state" con un 403, revisa que el permiso `contents: write` del
-   workflow no haya sido sobrescrito por una política de organización
-   en *Settings → Actions → General → Workflow permissions*.
+2. Confirma los permisos del token: en el repo, ve a *Settings → Actions
+   → General → Workflow permissions* y verifica que esté en "Read and
+   write permissions". El workflow ya declara `permissions: contents:
+   write` e `issues: write` explícitamente, pero una política de
+   organización puede sobrescribirlo a nivel repo.
+3. Activa **Watch → All Activity** (o al menos "Issues") en la página
+   principal del repo. Así, cada comentario nuevo en el issue fijo
+   "📋 Job Alerts — Log diario" te llega por correo o por la app de
+   GitHub -- no hay ningún email que el pipeline gestione directamente,
+   y por lo tanto **no hay secrets que crear**: `GITHUB_TOKEN` lo
+   inyecta Actions automáticamente en cada run.
+4. Al hacer push, el workflow ya queda registrado en la pestaña *Actions*
+   del repo. Corre solo a las 08:00 America/Bogota, y también puedes
+   dispararlo manualmente desde *Actions → Daily Job Alert Pipeline →
+   Run workflow*.
+5. Verifica el primer run ahí mismo: si falla con un 403 al crear el
+   issue o al hacer push del estado, es el mismo punto del paso 2 --
+   revisa "Workflow permissions" a nivel repo u organización.
 
 ### Correrlo en local
 
+Fuera de Actions, `GITHUB_TOKEN`/`GITHUB_REPOSITORY` no existen solos --
+necesitas un Personal Access Token con scope `repo` (o, más acotado,
+`issues:write` si usas un fine-grained token) y exportar el nombre del
+repo a mano:
+
 ```bash
 pip install -r requirements.txt
-export SMTP_HOST=smtp.gmail.com SMTP_PORT=587 SMTP_USER=... SMTP_PASS=... ALERT_TO=...
+export GITHUB_TOKEN=ghp_xxx
+export GITHUB_REPOSITORY=tu-usuario/tu-repo
 python main.py
 ```
 
@@ -131,5 +146,8 @@ keywords; el scoring en `src/filter.py` es genérico.
 - ATS sin API pública confiable (SAP SuccessFactors, Oracle Taleo,
   Bizneo HR, JazzHR) — requerirían scraping HTML por empresa, más
   frágil; quedan fuera del alcance de este MVP.
-- Autenticación/gestión de secretos más allá de variables de entorno de
-  GitHub Actions — suficiente para un pipeline de un solo usuario.
+- LinkedIn — no tiene API pública de vacantes y prohíbe explícitamente
+  el scraping en sus términos de servicio; la única vía legítima es
+  LinkedIn Talent Solutions, que requiere ser partner aprobado.
+- Autenticación/gestión de secretos más allá del `GITHUB_TOKEN` nativo
+  de Actions — suficiente para un pipeline de un solo usuario.
