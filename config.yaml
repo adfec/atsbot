@@ -43,6 +43,8 @@ companies:
     confidence: candidate
   - slug: mercadolibre
     confidence: candidate
+  - slug: cobre
+    confidence: candidate
 
   # --- Edtech ---
   - slug: platzi
