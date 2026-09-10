@@ -43,8 +43,6 @@ companies:
     confidence: candidate
   - slug: mercadolibre
     confidence: candidate
-  - slug: cobre
-    confidence: candidate
 
   # --- Edtech ---
   - slug: platzi
@@ -123,7 +121,6 @@ roles:
       - "senior backend engineer"
       - "staff engineer"
       - "senior java developer"
-      - "senior python developer"
       - "senior full stack"
 
 exclude_keywords:
@@ -142,4 +139,32 @@ rolling_window_days: 10
 # solo amplía las posibilidades, no reemplaza el filtro por empresa.
 role_search:
   enabled: true
-  remote_only: true
+
+# Filtro de ubicación/remoto (src/location_filter.py). Se aplica a AMBAS
+# fuentes (empresas y búsqueda por rol) antes del scoring por keyword.
+# allow/exclude son substrings, sin distinguir mayúsculas, evaluados
+# contra el texto de ubicación que reporta cada ATS/agregador.
+location_filter:
+  enabled: true
+  allow_keywords:
+    - "remote"
+    - "latam"
+    - "latin america"
+    - "colombia"
+    - "americas"
+    - "anywhere"
+    - "worldwide"
+    - "global"
+    - "hybrid"
+  exclude_keywords:
+    - "us only"
+    - "usa only"
+    - "united states only"
+    - "canada only"
+    - "uk only"
+    - "europe only"
+    - "emea only"
+    - "apac only"
+    - "onsite"
+    - "on-site"
+    - "in office"

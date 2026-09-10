@@ -3,7 +3,12 @@ Filtro por rol/keyword. No es un filtro binario: cada vacante se puntúa
 contra cada familia de rol (config.yaml -> roles) y se conserva el mejor
 match, junto con su score, para poder ordenar el email por relevancia
 en vez de solo incluir/excluir.
+
+También aplica el filtro de ubicación/remoto (src/location_filter.py)
+antes de puntuar -- se descarta primero por geografía, y solo lo que
+pasa ese filtro se puntúa por rol.
 """
+from location_filter import is_location_compatible
 
 
 def score_job(title: str, roles_cfg: dict, exclude_keywords: list) -> tuple[str, int]:
@@ -26,15 +31,19 @@ def score_job(title: str, roles_cfg: dict, exclude_keywords: list) -> tuple[str,
     return best_role, best_score
 
 
-def filter_and_rank(jobs: list, roles_cfg: dict, exclude_keywords: list) -> list:
+def filter_and_rank(jobs: list, roles_cfg: dict, exclude_keywords: list, location_cfg: dict = None) -> list:
     """
     Anota cada NormalizedJob con .matched_role y .score (atributos
     dinámicos, no forman parte del dataclass para no acoplar filter.py
-    a ats_clients.base), descarta los excluidos/sin match, y ordena por
-    score descendente.
+    a ats_clients.base), descarta los excluidos por ubicación/rol, y
+    ordena por score descendente.
     """
+    location_cfg = location_cfg or {}
     ranked = []
     for job in jobs:
+        if not is_location_compatible(job.location, job.remote_flag, location_cfg):
+            continue
+
         role, score = score_job(job.title, roles_cfg, exclude_keywords)
         if score <= 0:
             continue

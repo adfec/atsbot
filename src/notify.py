@@ -89,7 +89,9 @@ def render_digest_markdown(company_jobs: list, role_search_jobs: list, alarms: l
         parts.append("")
 
     parts.append(f"### Vacantes nuevas — empresas objetivo ({len(company_jobs)})\n")
-    parts.extend(_render_job_row(j) for j in company_jobs) if company_jobs else \
+    if company_jobs:
+        parts.extend(_render_job_row(j) for j in company_jobs)
+    else:
         parts.append("_Sin novedades hoy en la lista de empresas._")
 
     parts.append(f"\n### Búsqueda por rol — fuente abierta ({len(role_search_jobs)})\n")
@@ -98,7 +100,9 @@ def render_digest_markdown(company_jobs: list, role_search_jobs: list, alarms: l
         "no por una lista de empresas verificadas. La relevancia y "
         "compatibilidad quedan a tu criterio._\n"
     )
-    parts.extend(_render_job_row(j) for j in role_search_jobs) if role_search_jobs else \
+    if role_search_jobs:
+        parts.extend(_render_job_row(j) for j in role_search_jobs)
+    else:
         parts.append("_Sin novedades hoy en búsqueda por rol._")
 
     return "\n".join(parts)

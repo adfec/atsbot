@@ -42,6 +42,7 @@ def search_remotive(query: str) -> list[NormalizedJob]:
                     posted_at=job.get("publication_date", ""),
                     raw_id=str(job.get("id", "")),
                     source="role_search",
+                    remote_flag=True,  # Remotive es un board exclusivamente remoto
                 ))
     except (requests.RequestException, ValueError):
         pass
@@ -73,13 +74,14 @@ def search_arbeitnow(query: str) -> list[NormalizedJob]:
                     posted_at=str(job.get("created_at", "")),
                     raw_id=job.get("slug", ""),
                     source="role_search",
+                    remote_flag=job.get("remote"),  # Arbeitnow SÍ reporta esto -- antes se ignoraba
                 ))
     except (requests.RequestException, ValueError):
         pass
     return jobs
 
 
-def run_role_search(role_keywords: dict, remote_only: bool = True) -> list[NormalizedJob]:
+def run_role_search(role_keywords: dict) -> list[NormalizedJob]:
     """
     role_keywords: el dict "roles" de config.yaml, ej.
       {"engineering_manager": {"keywords": [...]}, ...}
@@ -87,7 +89,9 @@ def run_role_search(role_keywords: dict, remote_only: bool = True) -> list[Norma
     Se usa como query solo la keyword "ancla" de cada rol (la primera de
     la lista) para no saturar de llamadas a los agregadores; el scoring
     fino contra todas las keywords se aplica después, igual que a las
-    vacantes de empresa (ver src/filter.py).
+    vacantes de empresa (ver src/filter.py). El filtro de ubicación/remoto
+    se aplica aparte, en src/location_filter.py, sobre el resultado
+    combinado de ambas fuentes.
     """
     results: list[NormalizedJob] = []
     seen_urls = set()

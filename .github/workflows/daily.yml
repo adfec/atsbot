@@ -7,7 +7,7 @@ on:
 
 permissions:
   contents: write            # el GITHUB_TOKEN es read-only por defecto; sin esto el push falla con 403
-  issues: write
+  issues: write              # necesario para crear/comentar el issue del digest
 
 jobs:
   run-pipeline:

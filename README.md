@@ -34,27 +34,32 @@ comentario en un Issue fijo del propio repo usando el `GITHUB_TOKEN`
 que Actions ya provee en cada run — sin SMTP, sin app passwords, sin
 ninguna credencial de cuenta personal.
 
+Un filtro de ubicación/remoto (`src/location_filter.py`) descarta
+vacantes en ciudades/países fuera de la región que tampoco aceptan
+remoto — se aplica por igual a las vacantes de empresa y a las del
+fallback por rol, ver la sección "Filtro de ubicación" más abajo.
+
 ## Estructura
 
 ```
 ats-pipeline/
-├── config.yaml                     # empresas objetivo + roles/keywords
+├── config.yaml                  # empresas objetivo + roles/keywords
 ├── requirements.txt
-├── main.py                         # orquestador
+├── main.py                      # orquestador
 ├── src/
-│ ├── ats_clients/
-│ │ ├── base.py                     # NormalizedJob (esquema común)
-│ │ └── discovery.py                # auto-descubrimiento + normalización por ATS
-│ ├── role_search.py                # fallback: búsqueda por rol en fuente abierta
-│ ├── filter.py                     # scoring por rol/keyword
-│ ├── state.py                      # dedupe + ventana rodante (git-como-DB)
-│ ├── health.py                     # alarma de fuente en 0
-│ └── notify.py                     # publica el digest como comentario en un Issue de GitHub
-├── .github/workflows/daily.yml     # cron diario + commit de estado
-├── seen_links.json                 # estado (lo actualiza el propio workflow)
-├── job_history.json                # estado
-├── source_health.json              # estado
-└── digest_issue.json               # estado: número del issue fijo del digest
+│   ├── ats_clients/
+│   │   ├── base.py              # NormalizedJob (esquema común)
+│   │   └── discovery.py         # auto-descubrimiento + normalización por ATS
+│   ├── role_search.py           # fallback: búsqueda por rol en fuente abierta
+│   ├── filter.py                # scoring por rol/keyword
+│   ├── state.py                 # dedupe + ventana rodante (git-como-DB)
+│   ├── health.py                # alarma de fuente en 0
+│   └── notify.py                # publica el digest como comentario en un Issue de GitHub
+├── .github/workflows/daily.yml  # cron diario + commit de estado
+├── seen_links.json              # estado (lo actualiza el propio workflow)
+├── job_history.json             # estado
+├── source_health.json           # estado
+└── digest_issue.json            # estado: número del issue fijo del digest
 ```
 
 ## Setup
@@ -62,7 +67,7 @@ ats-pipeline/
 1. Crea el repo en GitHub (vacío, sin README/gitignore desde la web para
    no chocar con los que ya trae esta carpeta) y súbele estos archivos:
 
-```bash
+   ```bash
    cd ats-pipeline
    git init
    git add .
@@ -70,7 +75,7 @@ ats-pipeline/
    git branch -M main
    git remote add origin https://github.com/<tu-usuario>/<tu-repo>.git
    git push -u origin main
-```
+   ```
 
    (Con GitHub CLI en vez de crear el repo desde la web:
    `gh repo create <tu-repo> --private --source=. --push`)
@@ -141,6 +146,25 @@ Manager, Solutions/Platform Architect y Senior Software Engineer.
 Agregar un rol nuevo es solo agregar una entrada con su lista de
 keywords; el scoring en `src/filter.py` es genérico.
 
+## Filtro de ubicación
+
+`config.yaml` bajo `location_filter:` controla qué vacantes se
+consideran compatibles geográficamente, aplicado a ambas fuentes
+(empresas y búsqueda por rol) antes del scoring por rol:
+
+- `allow_keywords`: si la ubicación reportada contiene alguna (ej.
+  "remote", "latam", "colombia"), se acepta.
+- `exclude_keywords`: si contiene alguna (ej. "us only", "onsite",
+  "hybrid"), se descarta sin importar lo demás.
+- Ubicación vacía → se acepta (muchas vacantes remotas legítimas no
+  la especifican).
+- Cualquier otro caso (una ciudad/país específico que no matcheó
+  nada) → se descarta.
+
+Es un filtro con substrings, sin distinguir mayúsculas — ajusta las
+listas directamente en `config.yaml` si ves falsos positivos o
+negativos, sin tocar código.
+
 ## Qué no incluye (a propósito)
 
 - ATS sin API pública confiable (SAP SuccessFactors, Oracle Taleo,
@@ -149,5 +173,6 @@ keywords; el scoring en `src/filter.py` es genérico.
 - LinkedIn — no tiene API pública de vacantes y prohíbe explícitamente
   el scraping en sus términos de servicio; la única vía legítima es
   LinkedIn Talent Solutions, que requiere ser partner aprobado.
-- Autenticación/gestión de secretos más allá del `GITHUB_TOKEN` nativo
-  de Actions — suficiente para un pipeline de un solo usuario.
+- Cualquier secret o credencial externa — la entrega usa únicamente
+  el `GITHUB_TOKEN` que Actions inyecta solo, sin SMTP ni API keys de
+  terceros que gestionar o rotar.

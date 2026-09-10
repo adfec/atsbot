@@ -54,6 +54,7 @@ def main():
     config = load_config()
     roles_cfg = config["roles"]
     exclude_kw = config.get("exclude_keywords", [])
+    location_cfg = config.get("location_filter", {})
     max_days = config.get("rolling_window_days", 10)
 
     seen, history = state.load_state()
@@ -65,13 +66,13 @@ def main():
     for company_cfg in config["companies"]:
         all_company_jobs.extend(fetch_company_jobs(company_cfg, health_state, alarms))
 
-    ranked_company_jobs = filter_and_rank(all_company_jobs, roles_cfg, exclude_kw)
+    ranked_company_jobs = filter_and_rank(all_company_jobs, roles_cfg, exclude_kw, location_cfg)
 
     # 2. Fallback por rol (fuente abierta, no depende de la lista de empresas)
     ranked_role_search_jobs = []
     if config.get("role_search", {}).get("enabled", True):
         raw_role_jobs = role_search.run_role_search(roles_cfg)
-        ranked_role_search_jobs = filter_and_rank(raw_role_jobs, roles_cfg, exclude_kw)
+        ranked_role_search_jobs = filter_and_rank(raw_role_jobs, roles_cfg, exclude_kw, location_cfg)
 
     # 3. Dedupe + ventana rodante (cada fuente actualiza el mismo estado)
     seen, history, new_company_jobs = state.update_state(
@@ -86,12 +87,6 @@ def main():
 
     # 4. Notificación
     if new_company_jobs or new_role_search_jobs or alarms:
-        #html_body = notify.render_digest_html(new_company_jobs, new_role_search_jobs, alarms)
-        """notify.send_email(
-            subject=f"Alertas de empleo — {len(new_company_jobs)} empresas / "
-                    f"{len(new_role_search_jobs)} por rol",
-            html_body=html_body,
-        )"""
         md_body = notify.render_digest_markdown(new_company_jobs, new_role_search_jobs, alarms)
         notify.post_digest(
             subject=f"Alertas de empleo — {len(new_company_jobs)} empresas / "
