@@ -157,7 +157,6 @@ location_filter:
     - "anywhere"
     - "worldwide"
     - "global"
-    - "hybrid"
   exclude_keywords:
     - "us only"
     - "usa only"
@@ -170,3 +169,4 @@ location_filter:
     - "onsite"
     - "on-site"
     - "in office"
+    - "hybrid"
