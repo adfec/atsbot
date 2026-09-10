@@ -22,6 +22,12 @@ def _headers(token: str) -> dict:
         "X-GitHub-Api-Version": "2022-11-28",
     }
 
+def _issue_exists(repo: str, issue_number: int, token: str) -> bool:
+    r = requests.get(
+        f"{API_ROOT}/repos/{repo}/issues/{issue_number}",
+        headers=_headers(token), timeout=10,
+    )
+    return r.status_code == 200
 
 def _load_issue_number():
     if not DIGEST_ISSUE_STATE_PATH.exists():
@@ -40,7 +46,7 @@ def _save_issue_number(issue_number: int):
 
 def _get_or_create_issue(repo: str, token: str) -> int:
     issue_number = _load_issue_number()
-    if issue_number:
+    if issue_number and _issue_exists(repo, issue_number, token):
         return issue_number
 
     # Si el state se perdiera pero el issue ya existe, se busca por título
