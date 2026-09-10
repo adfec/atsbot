@@ -108,6 +108,8 @@ roles:
       - "director of engineering"
       - "engineering lead"
       - "eng manager"
+      - "lead engineer"
+      - "principal manager"
   solutions_architect:
     keywords:
       - "solutions architect"
