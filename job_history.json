@@ -519,6 +519,16 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "arbeitnow:Speechify:senior-software-engineer-windows-desktop-applications-bordeaux-france-372917"
+    },
+    {
+      "first_seen": "2026-09-10",
+      "title": "Senior Software Engineer - REDAPL Graph Engine",
+      "company": "Datadog",
+      "url": "https://www.arbeitnow.com/jobs/companies/datadog/remote-senior-software-engineer-redapl-graph-engine-264102",
+      "location": "Remote",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "arbeitnow:Datadog:remote-senior-software-engineer-redapl-graph-engine-264102"
     }
   ],
   "solutions_architect": [
@@ -591,6 +601,16 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "arbeitnow:databricks:solutions-architect-customerlake-paris-375154"
+    },
+    {
+      "first_seen": "2026-09-10",
+      "title": "Partner Solutions Architect (Pan-EMEA GSI)",
+      "company": "Datadog",
+      "url": "https://www.arbeitnow.com/jobs/companies/datadog/remote-partner-solutions-architect-pan-emea-gsi-342806",
+      "location": "Remote",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "arbeitnow:Datadog:remote-partner-solutions-architect-pan-emea-gsi-342806"
     }
   ],
   "engineering_manager": [
