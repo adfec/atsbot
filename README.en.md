@@ -63,6 +63,7 @@ ats-pipeline/
 ```
 
 ## Setup
+>If you want to copy (fork) the project, skip step 1
 
 1. Create the repo on GitHub (empty, without a README/gitignore from the
    web UI so it doesn't collide with the ones already in this folder)
@@ -81,22 +82,23 @@ ats-pipeline/
    (With GitHub CLI instead of creating the repo from the web:
    `gh repo create <your-repo> --private --source=. --push`)
 
-2. Confirm token permissions: in the repo, go to *Settings → Actions
+2. Setup your search preferences in file `config.yaml`
+3. Confirm token permissions: in the repo, go to *Settings → Actions
    → General → Workflow permissions* and check it's set to "Read and
    write permissions". The workflow already declares `permissions:
    contents: write` and `issues: write` explicitly, but an
    organization policy can override that at the repo level.
-3. Turn on **Watch → All Activity** (or at least "Issues") on the
+4. Turn on **Watch → All Activity** (or at least "Issues") on the
    repo's main page. That way, every new comment on the pinned
    "📋 Job Alerts — Daily Log" issue reaches you by email or through
    the GitHub app — the pipeline never handles any email itself, and
    therefore **there are no secrets to create**: `GITHUB_TOKEN` is
    injected automatically by Actions on every run.
-4. Once you push, the workflow is already registered under the
+5. Once you push, the workflow is already registered under the
    *Actions* tab. It runs on its own at 08:00 America/Bogota, and you
    can also trigger it manually from *Actions → Daily Job Alert
    Pipeline → Run workflow*.
-5. Check that first run right there: if it fails with a 403 either
+6. Check that first run right there: if it fails with a 403 either
    creating the issue or pushing the state, it's the same spot as
    step 2 — check "Workflow permissions" at the repo or org level.
 

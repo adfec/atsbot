@@ -1,5 +1,8 @@
 # ATS Job Alert Pipeline
 
+### [English version here](README.en.md)
+---
+
 Pipeline diario de alertas de empleo, corriendo gratis en GitHub Actions,
 con estado persistido como commits de git (sin base de datos externa).
 
@@ -63,6 +66,7 @@ ats-pipeline/
 ```
 
 ## Setup
+>Si vas a crear una copia (fork), omite el paso 1
 
 1. Crea el repo en GitHub (vacío, sin README/gitignore desde la web para
    no chocar con los que ya trae esta carpeta) y súbele estos archivos:
@@ -80,22 +84,23 @@ ats-pipeline/
    (Con GitHub CLI en vez de crear el repo desde la web:
    `gh repo create <tu-repo> --private --source=. --push`)
 
-2. Confirma los permisos del token: en el repo, ve a *Settings → Actions
+2. Configura tus preferencias de búsqueda en el archivo `config.yaml`
+3. Confirma los permisos del token: en el repo, ve a *Settings → Actions
    → General → Workflow permissions* y verifica que esté en "Read and
    write permissions". El workflow ya declara `permissions: contents:
    write` e `issues: write` explícitamente, pero una política de
    organización puede sobrescribirlo a nivel repo.
-3. Activa **Watch → All Activity** (o al menos "Issues") en la página
+4. Activa **Watch → All Activity** (o al menos "Issues") en la página
    principal del repo. Así, cada comentario nuevo en el issue fijo
    "📋 Job Alerts — Log diario" te llega por correo o por la app de
    GitHub -- no hay ningún email que el pipeline gestione directamente,
    y por lo tanto **no hay secrets que crear**: `GITHUB_TOKEN` lo
    inyecta Actions automáticamente en cada run.
-4. Al hacer push, el workflow ya queda registrado en la pestaña *Actions*
+5. Al hacer push, el workflow ya queda registrado en la pestaña *Actions*
    del repo. Corre solo a las 08:00 America/Bogota, y también puedes
    dispararlo manualmente desde *Actions → Daily Job Alert Pipeline →
    Run workflow*.
-5. Verifica el primer run ahí mismo: si falla con un 403 al crear el
+6. Verifica el primer run ahí mismo: si falla con un 403 al crear el
    issue o al hacer push del estado, es el mismo punto del paso 2 --
    revisa "Workflow permissions" a nivel repo u organización.
 
