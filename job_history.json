@@ -793,6 +793,16 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "arbeitnow:mirakl:engineering-manager-java-bordeaux-281910"
+    },
+    {
+      "first_seen": "2026-09-16",
+      "title": "Senior Engineering Manager",
+      "company": "twilio",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/8204351",
+      "location": "Remote - US",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:twilio:8204351"
     }
   ]
 }
