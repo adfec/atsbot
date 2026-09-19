@@ -611,6 +611,16 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "arbeitnow:Datadog:remote-partner-solutions-architect-pan-emea-gsi-342806"
+    },
+    {
+      "first_seen": "2026-09-19",
+      "title": "Software Architect - Enterprise AI",
+      "company": "twilio",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/8213861",
+      "location": "Remote - Canada",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:twilio:8213861"
     }
   ],
   "engineering_manager": [
