@@ -1,27 +1,6 @@
 {
-  "senior_swe": [
-    {
-      "first_seen": "2026-09-10",
-      "title": "Senior Software Engineer - REDAPL Graph Engine",
-      "company": "Datadog",
-      "url": "https://www.arbeitnow.com/jobs/companies/datadog/remote-senior-software-engineer-redapl-graph-engine-264102",
-      "location": "Remote",
-      "score": 1,
-      "source": "role_search",
-      "dedupe_key": "arbeitnow:Datadog:remote-senior-software-engineer-redapl-graph-engine-264102"
-    }
-  ],
+  "senior_swe": [],
   "solutions_architect": [
-    {
-      "first_seen": "2026-09-10",
-      "title": "Partner Solutions Architect (Pan-EMEA GSI)",
-      "company": "Datadog",
-      "url": "https://www.arbeitnow.com/jobs/companies/datadog/remote-partner-solutions-architect-pan-emea-gsi-342806",
-      "location": "Remote",
-      "score": 1,
-      "source": "role_search",
-      "dedupe_key": "arbeitnow:Datadog:remote-partner-solutions-architect-pan-emea-gsi-342806"
-    },
     {
       "first_seen": "2026-09-19",
       "title": "Software Architect - Enterprise AI",
