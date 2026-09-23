@@ -1,116 +1,154 @@
 {
   "rappi": [
+    20,
     20
   ],
   "addi": [
+    32,
     32
   ],
   "bold": [
+    1,
     1
   ],
   "habi": [
+    0,
     0
   ],
   "truora": [
+    0,
     0
   ],
   "finkargo": [
+    0,
     0
   ],
   "akua": [
+    0,
     0
   ],
   "siigo": [
+    0,
     0
   ],
   "clara": [
+    137,
     137
   ],
   "kavak": [
+    8,
     8
   ],
   "nubank": [
+    0,
     0
   ],
   "uala": [
+    0,
     0
   ],
   "dlocal": [
+    54,
     54
   ],
   "clip": [
+    0,
     0
   ],
   "mercadolibre": [
+    0,
     0
   ],
   "platzi": [
+    0,
     0
   ],
   "crehana": [
+    0,
     0
   ],
   "frubana": [
+    0,
     0
   ],
   "merqueo": [
+    0,
     0
   ],
   "tul": [
+    0,
     0
   ],
   "runa": [
+    1,
     1
   ],
   "yuno": [
+    39,
     39
   ],
   "kushki": [
+    0,
     0
   ],
   "vtex": [
-    29
+    29,
+    27
   ],
   "despegar": [
-    91
+    91,
+    82
   ],
   "twilio": [
-    141
+    141,
+    140
   ],
   "sezzle": [
-    214
+    214,
+    215
   ],
   "binance": [
+    15,
     15
   ],
   "caseware": [
-    55
+    55,
+    57
   ],
   "godaddy": [
-    34
+    34,
+    33
   ],
   "sonatype": [
-    28
+    28,
+    29
   ],
   "globant": [
+    0,
     0
   ],
   "encora": [
+    0,
     0
   ],
   "endava": [
+    100,
     100
   ],
   "nearsure": [
+    0,
     0
   ],
   "thoughtworks": [
-    33
+    33,
+    34
   ],
   "accenture": [
+    0,
     0
   ],
   "aspenview": [
+    0,
     0
   ]
 }

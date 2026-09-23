@@ -291,6 +291,106 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "jobicy:Canonical:150274"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Engineering Manager - Solutions Engineering",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/149556-engineering-manager-solutions-engineering",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:149556"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Cloud Engineering Manager",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/149569-cloud-engineering-manager",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:149569"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Engineering Manager - Ubuntu Security",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/149572-engineering-manager-ubuntu-security",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:149572"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Engineering Manager",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/149575-engineering-manager",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:149575"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Engineering Manager - Data Platform",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/149561-engineering-manager-data-platform",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:149561"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Engineering Manager - Ubuntu Linux Kernel",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/149570-engineering-manager-ubuntu-linux-kernel",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:149570"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Engineering Manager - Security Standards and Hardening",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/149536-engineering-manager-security-standards-and-hardening",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:149536"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Engineering Manager, Managed Services",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/149528-engineering-manager-managed-services",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:149528"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Engineering Manager - AppArmor",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/149526-engineering-manager-apparmor",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:149526"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "OpenStack Engineering Manager",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/149573-openstack-engineering-manager",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:149573"
     }
   ],
   "solutions_architect": [
@@ -333,6 +433,26 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "jobicy:Truelogic:149164"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Cloud Solutions Architect - Alliances",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/149568-cloud-solutions-architect-alliances",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:149568"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "IoT Solutions Architecture Manager (Americas only)",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/149579-iot-solutions-architecture-manager-americas-only",
+      "location": "LATAM,  Canada,  USA",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:149579"
     }
   ]
 }
