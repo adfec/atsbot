@@ -1,1 +1,338 @@
-{}
+{
+  "senior_swe": [
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Backend Engineer (Ingeniero Backend Senior) - Hybrid",
+      "company": "clara",
+      "url": "https://job-boards.greenhouse.io/clara/jobs/5150839007",
+      "location": "Bogota / CUN / Colombia; Mexico City / CDMX / Mexico; Sao Paulo / SP / Brazil",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:clara:5150839007"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer",
+      "company": "twilio",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/8065028",
+      "location": "Remote - US",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:twilio:8065028"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer, Fraud",
+      "company": "twilio",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7595407",
+      "location": "Remote - US",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:twilio:7595407"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer (Argentina)",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/7541148003",
+      "location": "Argentina, Remote",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:7541148003"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer (Brazil)",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/6110212003",
+      "location": "Brazil, Remote",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:6110212003"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer (Chile)",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/6110211003",
+      "location": "Chile, Remote",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:6110211003"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer (Colombia)",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/6110245003",
+      "location": "Colombia, Remote",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:6110245003"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer (India)",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/7775223003",
+      "location": "India, Remote",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:7775223003"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer (LATAM)",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/5761148003",
+      "location": "Latin America",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:5761148003"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer (Mexico)",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/6570434003",
+      "location": "Mexico, Remote",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:6570434003"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer (Poland)",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/7566124003",
+      "location": "Poland, Remote",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:7566124003"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer (Turkey)",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/6275711003",
+      "location": "Türkiye, Remote",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:6275711003"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer with Accounting Experience ",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/7527790003",
+      "location": "Türkiye, Remote",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:7527790003"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer with Accounting Experience (Argentina)",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/7542375003",
+      "location": "Argentina, Remote",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:7542375003"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer with Accounting Experience (Brazil)",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/7527786003",
+      "location": "Brazil, Remote",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:7527786003"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer with Accounting Experience (Chile)",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/7542374003",
+      "location": "Chile, Remote",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:7542374003"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer with Accounting Experience (Colombia)",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/7542373003",
+      "location": "Bogota, Colombia",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:7542373003"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer with Accounting Experience (LATAM)",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/7527765003",
+      "location": "Latin America",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:7527765003"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer with Accounting Experience (LATAM)",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/7527782003",
+      "location": "Mexico, Remote",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:7527782003"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer",
+      "company": "Tremendous",
+      "url": "https://jobicy.com/jobs/151290-senior-software-engineer-3",
+      "location": "LATAM,  Canada,  USA",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Tremendous:151290"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Engineer - Workflow",
+      "company": "Cloudbeds",
+      "url": "https://jobicy.com/jobs/153534-senior-software-engineer-workflow",
+      "location": "LATAM,  USA",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Cloudbeds:153534"
+    }
+  ],
+  "engineering_manager": [
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Engineering Manager",
+      "company": "twilio",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/8204351",
+      "location": "Remote - US",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:twilio:8204351"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Engineering Manager (L5)",
+      "company": "twilio",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/8001804",
+      "location": "Remote - India",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:twilio:8001804"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Engineering Manager Twilio’s Conversational Agents",
+      "company": "twilio",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7926887",
+      "location": "Remote - US",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:twilio:7926887"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Engineering Manager V&V Media",
+      "company": "twilio",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/8067501",
+      "location": "Remote - Ontario, Canada (DNU)",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:twilio:8067501"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Engineering Manager V&V Media",
+      "company": "twilio",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/8067678",
+      "location": "Remote - US",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:twilio:8067678"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Engineering Manager V&V Media",
+      "company": "twilio",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/8067500",
+      "location": "Remote - Alberta, Canada (DNU)",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:twilio:8067500"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Devices & IOT Field Engineering Manager (Americas)",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/151016-devices-iot-field-engineering-manager-americas-2",
+      "location": "LATAM,  Canada,  USA",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:151016"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Devices & IOT Field Engineering Manager",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/150274-devices-iot-field-engineering-manager-americas",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:150274"
+    }
+  ],
+  "solutions_architect": [
+    {
+      "first_seen": "2026-09-23",
+      "title": "Software Architect - Enterprise AI",
+      "company": "twilio",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/8213861",
+      "location": "Remote - Canada",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:twilio:8213861"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Software Architect (L6)",
+      "company": "twilio",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7825089",
+      "location": "Remote - India",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:twilio:7825089"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Staff Solutions Architect, Opportunity LifeCycle Management",
+      "company": "twilio",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/7979240",
+      "location": "Remote - US",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:twilio:7979240"
+    },
+    {
+      "first_seen": "2026-09-23",
+      "title": "Senior Software Architect (C# / AI First) - GovTech SaaS company",
+      "company": "Truelogic",
+      "url": "https://jobicy.com/jobs/149164-senior-software-architect-c-ai-first-govtech-saas-company",
+      "location": "LATAM",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Truelogic:149164"
+    }
+  ]
+}
