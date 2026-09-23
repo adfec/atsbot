@@ -22,12 +22,6 @@ def _headers(token: str) -> dict:
         "X-GitHub-Api-Version": "2022-11-28",
     }
 
-def _issue_exists(repo: str, issue_number: int, token: str) -> bool:
-    r = requests.get(
-        f"{API_ROOT}/repos/{repo}/issues/{issue_number}",
-        headers=_headers(token), timeout=10,
-    )
-    return r.status_code == 200
 
 def _load_issue_number():
     if not DIGEST_ISSUE_STATE_PATH.exists():
@@ -44,13 +38,15 @@ def _save_issue_number(issue_number: int):
     )
 
 
-def _get_or_create_issue(repo: str, token: str) -> int:
-    issue_number = _load_issue_number()
-    if issue_number and _issue_exists(repo, issue_number, token):
-        return issue_number
+def _issue_exists(repo: str, issue_number: int, token: str) -> bool:
+    r = requests.get(
+        f"{API_ROOT}/repos/{repo}/issues/{issue_number}",
+        headers=_headers(token), timeout=10,
+    )
+    return r.status_code == 200
 
-    # Si el state se perdiera pero el issue ya existe, se busca por título
-    # antes de crear uno nuevo -- evita duplicados.
+
+def _find_issue_by_title(repo: str, token: str):
     r = requests.get(
         f"{API_ROOT}/repos/{repo}/issues",
         params={"state": "all", "per_page": 100},
@@ -59,9 +55,11 @@ def _get_or_create_issue(repo: str, token: str) -> int:
     if r.status_code == 200:
         for issue in r.json():
             if issue.get("title") == DIGEST_ISSUE_TITLE:
-                _save_issue_number(issue["number"])
                 return issue["number"]
+    return None
 
+
+def _create_issue(repo: str, token: str) -> int:
     r = requests.post(
         f"{API_ROOT}/repos/{repo}/issues",
         json={
@@ -72,7 +70,19 @@ def _get_or_create_issue(repo: str, token: str) -> int:
         headers=_headers(token), timeout=10,
     )
     r.raise_for_status()
-    issue_number = r.json()["number"]
+    return r.json()["number"]
+
+
+def _get_or_create_issue(repo: str, token: str) -> int:
+    cached = _load_issue_number()
+    if cached and _issue_exists(repo, cached, token):
+        return cached
+    # El número cacheado no existe (ej. se borró el issue a mano) --
+    # esto es justo lo que causaba el 404: comentar sobre un recurso que
+    # ya no está, en vez de detectarlo y recuperarse solo.
+
+    found = _find_issue_by_title(repo, token)
+    issue_number = found if found is not None else _create_issue(repo, token)
     _save_issue_number(issue_number)
     return issue_number
 

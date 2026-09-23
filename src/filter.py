@@ -41,7 +41,7 @@ def filter_and_rank(jobs: list, roles_cfg: dict, exclude_keywords: list, locatio
     location_cfg = location_cfg or {}
     ranked = []
     for job in jobs:
-        if not is_location_compatible(job.location, job.remote_flag, location_cfg):
+        if not is_location_compatible(job.location, job.remote_flag, location_cfg, job.department):
             continue
 
         role, score = score_job(job.title, roles_cfg, exclude_keywords)

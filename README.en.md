@@ -63,10 +63,8 @@ ats-pipeline/
 ```
 
 ## Setup
->If you want to copy (fork) the project, skip step 1
 
-1. Create the repo on GitHub (empty, without a README/gitignore from the
-   web UI so it doesn't collide with the ones already in this folder)
+1. Clone or create the repo on GitHub (empty, without a README/gitignore from the web UI so it doesn't collide with the ones already in this project)
    and push these files to it:
 
    ```bash
@@ -82,23 +80,22 @@ ats-pipeline/
    (With GitHub CLI instead of creating the repo from the web:
    `gh repo create <your-repo> --private --source=. --push`)
 
-2. Setup your search preferences in file `config.yaml`
-3. Confirm token permissions: in the repo, go to *Settings → Actions
+2. Confirm token permissions: in the repo, go to *Settings → Actions
    → General → Workflow permissions* and check it's set to "Read and
    write permissions". The workflow already declares `permissions:
    contents: write` and `issues: write` explicitly, but an
    organization policy can override that at the repo level.
-4. Turn on **Watch → All Activity** (or at least "Issues") on the
+3. Turn on **Watch → All Activity** (or at least "Issues") on the
    repo's main page. That way, every new comment on the pinned
    "📋 Job Alerts — Daily Log" issue reaches you by email or through
    the GitHub app — the pipeline never handles any email itself, and
    therefore **there are no secrets to create**: `GITHUB_TOKEN` is
    injected automatically by Actions on every run.
-5. Once you push, the workflow is already registered under the
+4. Once you push, the workflow is already registered under the
    *Actions* tab. It runs on its own at 08:00 America/Bogota, and you
    can also trigger it manually from *Actions → Daily Job Alert
    Pipeline → Run workflow*.
-6. Check that first run right there: if it fails with a 403 either
+5. Check that first run right there: if it fails with a 403 either
    creating the issue or pushing the state, it's the same spot as
    step 2 — check "Workflow permissions" at the repo or org level.
 
@@ -124,10 +121,9 @@ Curated with a focus on employability from Colombia, in four groups:
   Finkargo, Akua, Siigo, Clara, Kavak, Nubank, Ualá, dLocal, Clip,
   MercadoLibre, VTEX, Despegar.
 - **Edtech**: Platzi, Crehana.
-- **Global/US companies with confirmed hiring in Colombia**: Twilio,
-  Sezzle, Binance, CaseWare International (Canadian audit fintech,
-  with an active dev team in Bogotá/Medellín).
-- **Consultancies/IT services with a physical presence in Colombia**:
+- **Global/US companies**: Twilio,
+  Sezzle, Binance, CaseWare International.
+- **Consultancies/IT services**:
   Globant, Encora, Endava, Nearsure, ThoughtWorks, Accenture,
   AspenView.
 

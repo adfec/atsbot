@@ -1,8 +1,5 @@
 # ATS Job Alert Pipeline
 
-### [English version here](README.en.md)
----
-
 Pipeline diario de alertas de empleo, corriendo gratis en GitHub Actions,
 con estado persistido como commits de git (sin base de datos externa).
 
@@ -23,7 +20,7 @@ con tres mejoras principales sobre el original:
 3. **Fallback por búsqueda de rol en fuente abierta.** Si la lista de
    empresas no trae resultados (o simplemente para ampliar el universo),
    el pipeline también busca directamente por keyword en agregadores
-   públicos (Remotive, Arbeitnow), sin depender de que la empresa esté
+   públicos (Remotive, Jobicy), sin depender de que la empresa esté
    en la lista curada. Estos resultados se marcan aparte en el digest —
    la decisión de compatibilidad queda del lado del usuario.
 
@@ -66,10 +63,8 @@ ats-pipeline/
 ```
 
 ## Setup
->Si vas a crear una copia (fork), omite el paso 1
 
-1. Crea el repo en GitHub (vacío, sin README/gitignore desde la web para
-   no chocar con los que ya trae esta carpeta) y súbele estos archivos:
+1. Clona el proyecto, o crea el repo en GitHub (vacío, sin README/gitignore desde la web para no chocar con los que ya trae este proyecto) y súbele estos archivos:
 
    ```bash
    cd ats-pipeline
@@ -84,23 +79,22 @@ ats-pipeline/
    (Con GitHub CLI en vez de crear el repo desde la web:
    `gh repo create <tu-repo> --private --source=. --push`)
 
-2. Configura tus preferencias de búsqueda en el archivo `config.yaml`
-3. Confirma los permisos del token: en el repo, ve a *Settings → Actions
+2. Confirma los permisos del token: en el repo, ve a *Settings → Actions
    → General → Workflow permissions* y verifica que esté en "Read and
    write permissions". El workflow ya declara `permissions: contents:
    write` e `issues: write` explícitamente, pero una política de
    organización puede sobrescribirlo a nivel repo.
-4. Activa **Watch → All Activity** (o al menos "Issues") en la página
+3. Activa **Watch → All Activity** (o al menos "Issues") en la página
    principal del repo. Así, cada comentario nuevo en el issue fijo
    "📋 Job Alerts — Log diario" te llega por correo o por la app de
    GitHub -- no hay ningún email que el pipeline gestione directamente,
    y por lo tanto **no hay secrets que crear**: `GITHUB_TOKEN` lo
    inyecta Actions automáticamente en cada run.
-5. Al hacer push, el workflow ya queda registrado en la pestaña *Actions*
+4. Al hacer push, el workflow ya queda registrado en la pestaña *Actions*
    del repo. Corre solo a las 08:00 America/Bogota, y también puedes
    dispararlo manualmente desde *Actions → Daily Job Alert Pipeline →
    Run workflow*.
-6. Verifica el primer run ahí mismo: si falla con un 403 al crear el
+5. Verifica el primer run ahí mismo: si falla con un 403 al crear el
    issue o al hacer push del estado, es el mismo punto del paso 2 --
    revisa "Workflow permissions" a nivel repo u organización.
 
@@ -126,10 +120,8 @@ Curadas con foco en empleabilidad desde Colombia, en cuatro grupos:
   Truora, Finkargo, Akua, Siigo, Clara, Kavak, Nubank, Ualá, dLocal,
   Clip, MercadoLibre, VTEX, Despegar.
 - **Edtech**: Platzi, Crehana.
-- **Globales/EEUU con contratación confirmada en Colombia**: Twilio,
-  Sezzle, Binance, CaseWare International (fintech canadiense de
-  auditoría, con equipo de desarrollo activo en Bogotá/Medellín).
-- **Consultoras/IT services con sede física en Colombia**: Globant,
+- **Globales/EEUU**: Twilio, Sezzle, Binance, CaseWare International.
+- **Consultoras/IT**: Globant,
   Encora, Endava, Nearsure, ThoughtWorks, Accenture, AspenView.
 
 Cada entrada tiene un campo `confidence`:
@@ -155,20 +147,29 @@ keywords; el scoring en `src/filter.py` es genérico.
 
 `config.yaml` bajo `location_filter:` controla qué vacantes se
 consideran compatibles geográficamente, aplicado a ambas fuentes
-(empresas y búsqueda por rol) antes del scoring por rol:
+(empresas y búsqueda por rol) antes del scoring por rol. Se evalúa
+contra `location` + `department` combinados, porque varias empresas
+globales codifican la región real en el nombre del equipo (ej. "APAC
+Engineering") en vez de en la ubicación:
 
-- `allow_keywords`: si la ubicación reportada contiene alguna (ej.
-  "remote", "latam", "colombia"), se acepta.
+- `allow_keywords`: si el texto combinado contiene alguna (ej.
+  "remote", "latam", "colombia", "anywhere"), se acepta.
 - `exclude_keywords`: si contiene alguna (ej. "us only", "onsite",
-  "hybrid"), se descarta sin importar lo demás.
-- Ubicación vacía → se acepta (muchas vacantes remotas legítimas no
-  la especifican).
+  "hybrid", o un país/ciudad concreto como "india", "germany"), se
+  descarta sin importar lo demás.
+- Ubicación+departamento vacíos → se acepta (muchas vacantes remotas
+  legítimas no lo especifican).
 - Cualquier otro caso (una ciudad/país específico que no matcheó
   nada) → se descarta.
 
 Es un filtro con substrings, sin distinguir mayúsculas — ajusta las
 listas directamente en `config.yaml` si ves falsos positivos o
-negativos, sin tocar código.
+negativos.
+
+**Fallback:** Remotive y Jobicy.
+
+**Fuentes evaluadas y descartadas** (sin API pública gratuita
+verificable): Tecla, Magneto365, Torre.ai, Indeed.
 
 ## Qué no incluye (a propósito)
 

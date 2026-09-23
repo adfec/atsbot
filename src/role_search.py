@@ -49,11 +49,51 @@ def search_remotive(query: str) -> list[NormalizedJob]:
     return jobs
 
 
+def search_jobicy(query: str) -> list[NormalizedJob]:
+    """
+    Jobicy SÍ expone un campo estructurado de elegibilidad geográfica
+    (jobGeo: "USA", "Europe", "Anywhere", etc.), a diferencia de Arbeitnow
+    que solo trae texto libre + un booleano remote. Por eso reemplaza a
+    Arbeitnow en el fallback -- ver location_filter.py, que evalúa jobGeo
+    igual que evalúa location.
+    """
+    jobs = []
+    try:
+        r = requests.get(
+            "https://jobicy.com/api/v2/remote-jobs",
+            params={"count": 50, "tag": query},
+            timeout=TIMEOUT,
+        )
+        if r.status_code == 200:
+            for job in r.json().get("jobs", []):
+                jobs.append(NormalizedJob(
+                    company=job.get("companyName", ""),
+                    ats="jobicy",
+                    title=job.get("jobTitle", ""),
+                    url=job.get("url", ""),
+                    location=job.get("jobGeo", ""),
+                    department=job.get("jobIndustry", ""),
+                    posted_at=job.get("pubDate", ""),
+                    raw_id=str(job.get("id", "")),
+                    source="role_search",
+                    remote_flag=True,  # Jobicy es un board exclusivamente remoto
+                ))
+    except (requests.RequestException, ValueError):
+        pass
+    return jobs
+
+
 def search_arbeitnow(query: str) -> list[NormalizedJob]:
     """
-    Arbeitnow no soporta filtro por query en la URL pública; se trae el
-    board completo (paginado) y se filtra localmente por título. El board
-    es pequeño-mediano así que esto es barato.
+    DEPRECADO en run_role_search (ver más abajo): Arbeitnow es un board
+    centrado en Europa y solo expone texto libre de ubicación + un
+    booleano remote, sin ningún campo de elegibilidad geográfica real --
+    "remote": true casi siempre significa "remoto dentro de la UE/un país
+    específico", no remoto global, y esa restricción vive en la
+    descripción completa, no en ningún campo que podamos leer barato.
+    Se deja la función por si en el futuro se quiere usar con un
+    location_filter más estricto (ej. exigir coincidencia positiva
+    explícita en vez de aceptar por defecto).
     """
     jobs = []
     query_lc = query.lower()
@@ -74,7 +114,7 @@ def search_arbeitnow(query: str) -> list[NormalizedJob]:
                     posted_at=str(job.get("created_at", "")),
                     raw_id=job.get("slug", ""),
                     source="role_search",
-                    remote_flag=job.get("remote"),  # Arbeitnow SÍ reporta esto -- antes se ignoraba
+                    remote_flag=job.get("remote"),
                 ))
     except (requests.RequestException, ValueError):
         pass
@@ -92,6 +132,10 @@ def run_role_search(role_keywords: dict) -> list[NormalizedJob]:
     vacantes de empresa (ver src/filter.py). El filtro de ubicación/remoto
     se aplica aparte, en src/location_filter.py, sobre el resultado
     combinado de ambas fuentes.
+
+    Arbeitnow se dejó fuera de esta combinación (ver search_arbeitnow) --
+    Jobicy cubre el mismo tipo de fuente pero con datos de elegibilidad
+    geográfica confiables.
     """
     results: list[NormalizedJob] = []
     seen_urls = set()
@@ -102,7 +146,7 @@ def run_role_search(role_keywords: dict) -> list[NormalizedJob]:
             continue
         anchor = keywords[0]
 
-        for job in search_remotive(anchor) + search_arbeitnow(anchor):
+        for job in search_remotive(anchor) + search_jobicy(anchor):
             if job.url in seen_urls:
                 continue
             seen_urls.add(job.url)

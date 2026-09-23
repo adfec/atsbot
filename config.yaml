@@ -68,7 +68,7 @@ companies:
   - slug: despegar
     confidence: candidate
 
-  # --- Globales/EEUU con contratación confirmada en Colombia ---
+  # --- Globales/EEUU ---
   - slug: twilio
     confidence: confirmed   # Greenhouse (job-boards.greenhouse.io/twilio)
   - slug: sezzle
@@ -82,7 +82,7 @@ companies:
   - slug: sonatype
     confidence: candidate
 
-  # --- Consultoras / IT services con sede física en Colombia ---
+  # --- Consultoras / IT services ---
   - slug: globant
     confidence: confirmed   # oficinas propias en Bogotá, Medellín, Barranquilla
   - slug: encora
@@ -108,8 +108,6 @@ roles:
       - "director of engineering"
       - "engineering lead"
       - "eng manager"
-      - "lead engineer"
-      - "principal manager"
   solutions_architect:
     keywords:
       - "solutions architect"
@@ -123,6 +121,7 @@ roles:
       - "senior backend engineer"
       - "staff engineer"
       - "senior java developer"
+      - "senior python developer"
       - "senior full stack"
 
 exclude_keywords:
@@ -144,8 +143,9 @@ role_search:
 
 # Filtro de ubicación/remoto (src/location_filter.py). Se aplica a AMBAS
 # fuentes (empresas y búsqueda por rol) antes del scoring por keyword.
-# allow/exclude son substrings, sin distinguir mayúsculas, evaluados
-# contra el texto de ubicación que reporta cada ATS/agregador.
+# Se evalúa contra location + department combinados (algunas ATS globales
+# ponen la región real en el nombre del equipo, no en location).
+# allow/exclude son substrings, sin distinguir mayúsculas.
 location_filter:
   enabled: true
   allow_keywords:
@@ -154,10 +154,11 @@ location_filter:
     - "latin america"
     - "colombia"
     - "americas"
-    - "anywhere"
+    - "anywhere"        # valor que usa Jobicy para remoto global
     - "worldwide"
     - "global"
   exclude_keywords:
+    # restricciones explícitas de elegibilidad
     - "us only"
     - "usa only"
     - "united states only"
@@ -169,4 +170,18 @@ location_filter:
     - "onsite"
     - "on-site"
     - "in office"
-#    - "hybrid"
+    - "hybrid"
+    # regiones/países/ciudades concretos fuera del alcance (empresas
+    # globales que publican todo su board sin filtrar por país) --
+    # ajusta esta lista si ves falsos positivos/negativos
+    - "europe"
+    - "emea"
+    - "apac"
+    - "united kingdom"
+    - "london"
+    - "germany"
+    - "france"
+    - "netherlands"
+    - "ireland"
+    - "spain"
+    - "portugal"
