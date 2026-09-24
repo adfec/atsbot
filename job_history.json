@@ -391,6 +391,26 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "jobicy:Canonical:149573"
+    },
+    {
+      "first_seen": "2026-09-24",
+      "title": "Engineering Manager - MLOps & Analytics",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/149521-engineering-manager-mlops-analytics",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:149521"
+    },
+    {
+      "first_seen": "2026-09-24",
+      "title": "Support Engineering Manager",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/149554-support-engineering-manager",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:149554"
     }
   ],
   "solutions_architect": [
