@@ -209,6 +209,16 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "jobicy:Cloudbeds:153534"
+    },
+    {
+      "first_seen": "2026-09-26",
+      "title": "Senior Software Engineer, Backend (Money Movement)",
+      "company": "Phantom",
+      "url": "https://jobicy.com/jobs/154082-senior-software-engineer-backend-money-movement",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Phantom:154082"
     }
   ],
   "engineering_manager": [
