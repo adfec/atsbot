@@ -219,6 +219,26 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "jobicy:Phantom:154082"
+    },
+    {
+      "first_seen": "2026-10-01",
+      "title": "Senior Software Engineer (Argentina)",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/7541149003",
+      "location": "Argentina, Remote",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:7541149003"
+    },
+    {
+      "first_seen": "2026-10-01",
+      "title": "Senior Software Engineer Full stack (LATAM) ",
+      "company": "sezzle",
+      "url": "https://job-boards.greenhouse.io/sezzle/jobs/6605413003",
+      "location": "Latin America",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:sezzle:6605413003"
     }
   ],
   "engineering_manager": [
