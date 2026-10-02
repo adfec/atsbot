@@ -239,6 +239,16 @@
       "score": 1,
       "source": "company",
       "dedupe_key": "greenhouse:sezzle:6605413003"
+    },
+    {
+      "first_seen": "2026-10-02",
+      "title": "Senior Software Engineer (L3)",
+      "company": "twilio",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/8099162",
+      "location": "Remote - Canada; Remote - US",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:twilio:8099162"
     }
   ],
   "engineering_manager": [
