@@ -39,28 +39,48 @@
       "score": 1,
       "source": "company",
       "dedupe_key": "greenhouse:twilio:8099162"
+    },
+    {
+      "first_seen": "2026-10-06",
+      "title": "Staff Engineer (Ingeniero Staff) - Remote First",
+      "company": "clara",
+      "url": "https://job-boards.greenhouse.io/clara/jobs/5257427007",
+      "location": "Bogota D.C. / DC / Colombia; Mexico City / CDMX / Mexico; Sao Paulo / SP / Brazil",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:clara:5257427007"
+    },
+    {
+      "first_seen": "2026-10-06",
+      "title": "Senior Full Stack Engineer, Observability",
+      "company": "NetBox Labs",
+      "url": "https://jobicy.com/jobs/154544-senior-full-stack-engineer-observability",
+      "location": "LATAM,  UK,  USA",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:NetBox Labs:154544"
+    },
+    {
+      "first_seen": "2026-10-06",
+      "title": "Senior Full Stack Engineer",
+      "company": "Fueled",
+      "url": "https://jobicy.com/jobs/152547-senior-full-stack-engineer",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Fueled:152547"
     }
   ],
   "engineering_manager": [
     {
-      "first_seen": "2026-09-24",
-      "title": "Engineering Manager - MLOps & Analytics",
-      "company": "Canonical",
-      "url": "https://jobicy.com/jobs/149521-engineering-manager-mlops-analytics",
+      "first_seen": "2026-10-06",
+      "title": "Engineering Manager",
+      "company": "Supabase",
+      "url": "https://jobicy.com/jobs/154552-engineering-manager-9",
       "location": "Anywhere",
       "score": 1,
       "source": "role_search",
-      "dedupe_key": "jobicy:Canonical:149521"
-    },
-    {
-      "first_seen": "2026-09-24",
-      "title": "Support Engineering Manager",
-      "company": "Canonical",
-      "url": "https://jobicy.com/jobs/149554-support-engineering-manager",
-      "location": "Anywhere",
-      "score": 1,
-      "source": "role_search",
-      "dedupe_key": "jobicy:Canonical:149554"
+      "dedupe_key": "jobicy:Supabase:154552"
     }
   ],
   "solutions_architect": [
