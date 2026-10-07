@@ -1,16 +1,6 @@
 {
   "senior_swe": [
     {
-      "first_seen": "2026-09-26",
-      "title": "Senior Software Engineer, Backend (Money Movement)",
-      "company": "Phantom",
-      "url": "https://jobicy.com/jobs/154082-senior-software-engineer-backend-money-movement",
-      "location": "Anywhere",
-      "score": 1,
-      "source": "role_search",
-      "dedupe_key": "jobicy:Phantom:154082"
-    },
-    {
       "first_seen": "2026-10-01",
       "title": "Senior Software Engineer (Argentina)",
       "company": "sezzle",
@@ -69,6 +59,16 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "jobicy:Fueled:152547"
+    },
+    {
+      "first_seen": "2026-10-07",
+      "title": "Senior Software Engineer, Fullstack",
+      "company": "CoderPad",
+      "url": "https://jobicy.com/jobs/154780-senior-software-engineer-fullstack-4",
+      "location": "LATAM",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:CoderPad:154780"
     }
   ],
   "engineering_manager": [
@@ -93,6 +93,16 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "jobicy:Canonical:154514"
+    },
+    {
+      "first_seen": "2026-10-07",
+      "title": "1150 - Senior Data Platform Architect - Palantir Foundry & Databricks Integration",
+      "company": "GoFasti",
+      "url": "https://jobicy.com/jobs/154742-1150-senior-data-platform-architect-palantir-foundry-databricks-integration",
+      "location": "LATAM",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:GoFasti:154742"
     }
   ]
 }
