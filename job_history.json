@@ -1,16 +1,6 @@
 {
   "senior_swe": [
     {
-      "first_seen": "2026-10-02",
-      "title": "Senior Software Engineer (L3)",
-      "company": "twilio",
-      "url": "https://job-boards.greenhouse.io/twilio/jobs/8099162",
-      "location": "Remote - Canada; Remote - US",
-      "score": 1,
-      "source": "company",
-      "dedupe_key": "greenhouse:twilio:8099162"
-    },
-    {
       "first_seen": "2026-10-06",
       "title": "Staff Engineer (Ingeniero Staff) - Remote First",
       "company": "clara",
@@ -69,6 +59,16 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "jobicy:TRM Labs:155038"
+    },
+    {
+      "first_seen": "2026-10-13",
+      "title": "Senior Software Engineer (Full-Stack, JavaScript)",
+      "company": "Able",
+      "url": "https://jobicy.com/jobs/155186-senior-software-engineer-full-stack-javascript",
+      "location": "LATAM",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Able:155186"
     }
   ],
   "engineering_manager": [
