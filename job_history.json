@@ -1,16 +1,6 @@
 {
   "senior_swe": [
     {
-      "first_seen": "2026-10-07",
-      "title": "Senior Software Engineer, Fullstack",
-      "company": "CoderPad",
-      "url": "https://jobicy.com/jobs/154780-senior-software-engineer-fullstack-4",
-      "location": "LATAM",
-      "score": 1,
-      "source": "role_search",
-      "dedupe_key": "jobicy:CoderPad:154780"
-    },
-    {
       "first_seen": "2026-10-11",
       "title": "Senior Software Engineer, Data Product",
       "company": "TRM Labs",
@@ -132,16 +122,5 @@
     }
   ],
   "engineering_manager": [],
-  "solutions_architect": [
-    {
-      "first_seen": "2026-10-07",
-      "title": "1150 - Senior Data Platform Architect - Palantir Foundry & Databricks Integration",
-      "company": "GoFasti",
-      "url": "https://jobicy.com/jobs/154742-1150-senior-data-platform-architect-palantir-foundry-databricks-integration",
-      "location": "LATAM",
-      "score": 1,
-      "source": "role_search",
-      "dedupe_key": "jobicy:GoFasti:154742"
-    }
-  ]
+  "solutions_architect": []
 }
