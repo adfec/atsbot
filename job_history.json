@@ -1,26 +1,6 @@
 {
   "senior_swe": [
     {
-      "first_seen": "2026-10-11",
-      "title": "Senior Software Engineer, Data Product",
-      "company": "TRM Labs",
-      "url": "https://jobicy.com/jobs/155044-senior-software-engineer-data-product",
-      "location": "LATAM",
-      "score": 1,
-      "source": "role_search",
-      "dedupe_key": "jobicy:TRM Labs:155044"
-    },
-    {
-      "first_seen": "2026-10-11",
-      "title": "Senior Software Engineer, Backend | Product Engineering",
-      "company": "TRM Labs",
-      "url": "https://jobicy.com/jobs/155038-senior-software-engineer-backend-product-engineering",
-      "location": "LATAM",
-      "score": 1,
-      "source": "role_search",
-      "dedupe_key": "jobicy:TRM Labs:155038"
-    },
-    {
       "first_seen": "2026-10-13",
       "title": "Senior Software Engineer (Full-Stack, JavaScript)",
       "company": "Able",
