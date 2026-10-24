@@ -1,16 +1,6 @@
 {
   "senior_swe": [
     {
-      "first_seen": "2026-10-13",
-      "title": "Senior Software Engineer (Full-Stack, JavaScript)",
-      "company": "Able",
-      "url": "https://jobicy.com/jobs/155186-senior-software-engineer-full-stack-javascript",
-      "location": "LATAM",
-      "score": 1,
-      "source": "role_search",
-      "dedupe_key": "jobicy:Able:155186"
-    },
-    {
       "first_seen": "2026-10-14",
       "title": "Senior Software Engineer, Security Platform",
       "company": "sezzle",
@@ -111,6 +101,27 @@
       "dedupe_key": "jobicy:Doximity:155868"
     }
   ],
-  "engineering_manager": [],
+  "engineering_manager": [
+    {
+      "first_seen": "2026-10-24",
+      "title": "Ubuntu Engineering Lead",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/149537-ubuntu-engineering-lead",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:149537"
+    },
+    {
+      "first_seen": "2026-10-24",
+      "title": "Rust Engineering Lead - Linux and Open Source",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/149566-rust-engineering-lead-linux-and-open-source",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:149566"
+    }
+  ],
   "solutions_architect": []
 }
