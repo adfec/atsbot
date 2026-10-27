@@ -31,6 +31,16 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "jobicy:Canonical:149566"
+    },
+    {
+      "first_seen": "2026-10-27",
+      "title": "Engineering Manager",
+      "company": "Customer.io",
+      "url": "https://jobicy.com/jobs/157337-engineering-manager-13",
+      "location": "LATAM,  Canada,  USA",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Customer.io:157337"
     }
   ],
   "solutions_architect": []
