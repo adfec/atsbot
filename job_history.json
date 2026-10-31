@@ -1,16 +1,5 @@
 {
-  "senior_swe": [
-    {
-      "first_seen": "2026-10-20",
-      "title": "Senior Software Engineer, Data",
-      "company": "Doximity",
-      "url": "https://jobicy.com/jobs/155868-senior-software-engineer-data",
-      "location": "LATAM,  Canada,  USA",
-      "score": 1,
-      "source": "role_search",
-      "dedupe_key": "jobicy:Doximity:155868"
-    }
-  ],
+  "senior_swe": [],
   "engineering_manager": [
     {
       "first_seen": "2026-10-24",
