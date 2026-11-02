@@ -40,6 +40,16 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "remotive:Lemon.io:2091134"
+    },
+    {
+      "first_seen": "2026-11-02",
+      "title": "Devices & IOT Field Engineering Manager (Americas)",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/158498-devices-iot-field-engineering-manager-americas-3",
+      "location": "LATAM,  Canada,  USA",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:158498"
     }
   ],
   "solutions_architect": []
