@@ -2,26 +2,6 @@
   "senior_swe": [],
   "engineering_manager": [
     {
-      "first_seen": "2026-10-24",
-      "title": "Ubuntu Engineering Lead",
-      "company": "Canonical",
-      "url": "https://jobicy.com/jobs/149537-ubuntu-engineering-lead",
-      "location": "Anywhere",
-      "score": 1,
-      "source": "role_search",
-      "dedupe_key": "jobicy:Canonical:149537"
-    },
-    {
-      "first_seen": "2026-10-24",
-      "title": "Rust Engineering Lead - Linux and Open Source",
-      "company": "Canonical",
-      "url": "https://jobicy.com/jobs/149566-rust-engineering-lead-linux-and-open-source",
-      "location": "Anywhere",
-      "score": 1,
-      "source": "role_search",
-      "dedupe_key": "jobicy:Canonical:149566"
-    },
-    {
       "first_seen": "2026-10-27",
       "title": "Engineering Manager",
       "company": "Customer.io",
@@ -52,5 +32,16 @@
       "dedupe_key": "jobicy:Canonical:158498"
     }
   ],
-  "solutions_architect": []
+  "solutions_architect": [
+    {
+      "first_seen": "2026-11-04",
+      "title": "Partner Solutions Architect , AI Builder",
+      "company": "Supabase",
+      "url": "https://jobicy.com/jobs/158826-partner-solutions-architect-ai-builder",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Supabase:158826"
+    }
+  ]
 }
