@@ -19,6 +19,16 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "jobicy:Cloudbeds:160792"
+    },
+    {
+      "first_seen": "2026-11-11",
+      "title": "Senior Backend Engineer — Risk",
+      "company": "clara",
+      "url": "https://job-boards.greenhouse.io/clara/jobs/5292787007",
+      "location": "Bogota D.C. / DC / Colombia; Mexico City / CDMX / Mexico; Sao Paulo / SP / Brazil",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:clara:5292787007"
     }
   ],
   "engineering_manager": [
@@ -31,6 +41,16 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "jobicy:Canonical:158498"
+    },
+    {
+      "first_seen": "2026-11-11",
+      "title": "Software Engineering Manager (Backend SaaS)",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/161192-software-engineering-manager-backend-saas",
+      "location": "LATAM,  Canada,  USA",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:161192"
     }
   ],
   "solutions_architect": [
