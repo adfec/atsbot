@@ -51,6 +51,26 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "jobicy:Canonical:161192"
+    },
+    {
+      "first_seen": "2026-11-12",
+      "title": "Senior Engineering Manager, Consumer / New Verticals",
+      "company": "Flex",
+      "url": "https://jobicy.com/jobs/161687-senior-engineering-manager-consumer-new-verticals",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Flex:161687"
+    },
+    {
+      "first_seen": "2026-11-12",
+      "title": "Engineering Manager - MLOps & Analytics",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/161669-engineering-manager-mlops-analytics-2",
+      "location": "Anywhere",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:161669"
     }
   ],
   "solutions_architect": [
