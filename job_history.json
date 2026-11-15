@@ -63,16 +63,5 @@
       "dedupe_key": "jobicy:Canonical:161669"
     }
   ],
-  "solutions_architect": [
-    {
-      "first_seen": "2026-11-04",
-      "title": "Partner Solutions Architect , AI Builder",
-      "company": "Supabase",
-      "url": "https://jobicy.com/jobs/158826-partner-solutions-architect-ai-builder",
-      "location": "Anywhere",
-      "score": 1,
-      "source": "role_search",
-      "dedupe_key": "jobicy:Supabase:158826"
-    }
-  ]
+  "solutions_architect": []
 }
