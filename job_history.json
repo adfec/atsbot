@@ -51,6 +51,16 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "jobicy:Canonical:161669"
+    },
+    {
+      "first_seen": "2026-11-18",
+      "title": "Engineering Manager",
+      "company": "addi",
+      "url": "https://jobs.ashbyhq.com/addi/2e8c362d-a040-4c24-b09e-813136b0fd01",
+      "location": "LatAm",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "ashby:addi:2e8c362d-a040-4c24-b09e-813136b0fd01"
     }
   ],
   "solutions_architect": []
