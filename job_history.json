@@ -19,6 +19,16 @@
       "score": 1,
       "source": "company",
       "dedupe_key": "greenhouse:clara:5292787007"
+    },
+    {
+      "first_seen": "2026-11-19",
+      "title": "Senior Full Stack Engineer (Backend-oriented), Growth - Platform",
+      "company": "CookUnity",
+      "url": "https://jobicy.com/jobs/163197-senior-full-stack-engineer-backend-oriented-growth-platform",
+      "location": "LATAM",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:CookUnity:163197"
     }
   ],
   "engineering_manager": [
@@ -63,5 +73,16 @@
       "dedupe_key": "ashby:addi:2e8c362d-a040-4c24-b09e-813136b0fd01"
     }
   ],
-  "solutions_architect": []
+  "solutions_architect": [
+    {
+      "first_seen": "2026-11-19",
+      "title": "Senior Workday Solutions Architect",
+      "company": "Launchpad Technologies",
+      "url": "https://jobicy.com/jobs/163195-senior-workday-solutions-architect",
+      "location": "LATAM",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Launchpad Technologies:163195"
+    }
+  ]
 }
