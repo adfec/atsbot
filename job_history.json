@@ -71,6 +71,26 @@
       "score": 1,
       "source": "company",
       "dedupe_key": "ashby:addi:2e8c362d-a040-4c24-b09e-813136b0fd01"
+    },
+    {
+      "first_seen": "2026-11-20",
+      "title": "Software Engineering Manager - Sustaining Engineering",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/163582-software-engineering-manager-sustaining-engineering",
+      "location": "LATAM,  Canada,  USA",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:163582"
+    },
+    {
+      "first_seen": "2026-11-20",
+      "title": "Engineering Manager - Developer Tools (Starcraft)",
+      "company": "Canonical",
+      "url": "https://jobicy.com/jobs/163575-engineering-manager-developer-tools-starcraft",
+      "location": "LATAM,  Canada,  USA",
+      "score": 1,
+      "source": "role_search",
+      "dedupe_key": "jobicy:Canonical:163575"
     }
   ],
   "solutions_architect": [
