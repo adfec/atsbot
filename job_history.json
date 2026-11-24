@@ -9,29 +9,19 @@
       "score": 1,
       "source": "role_search",
       "dedupe_key": "jobicy:CookUnity:163197"
+    },
+    {
+      "first_seen": "2026-11-24",
+      "title": "Senior Software Engineer, Identity",
+      "company": "twilio",
+      "url": "https://job-boards.greenhouse.io/twilio/jobs/8056276",
+      "location": "Remote - US",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "greenhouse:twilio:8056276"
     }
   ],
   "engineering_manager": [
-    {
-      "first_seen": "2026-11-12",
-      "title": "Senior Engineering Manager, Consumer / New Verticals",
-      "company": "Flex",
-      "url": "https://jobicy.com/jobs/161687-senior-engineering-manager-consumer-new-verticals",
-      "location": "Anywhere",
-      "score": 1,
-      "source": "role_search",
-      "dedupe_key": "jobicy:Flex:161687"
-    },
-    {
-      "first_seen": "2026-11-12",
-      "title": "Engineering Manager - MLOps & Analytics",
-      "company": "Canonical",
-      "url": "https://jobicy.com/jobs/161669-engineering-manager-mlops-analytics-2",
-      "location": "Anywhere",
-      "score": 1,
-      "source": "role_search",
-      "dedupe_key": "jobicy:Canonical:161669"
-    },
     {
       "first_seen": "2026-11-18",
       "title": "Engineering Manager",
