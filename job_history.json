@@ -19,6 +19,16 @@
       "score": 1,
       "source": "company",
       "dedupe_key": "greenhouse:twilio:8056276"
+    },
+    {
+      "first_seen": "2026-11-25",
+      "title": "Senior Full Stack Developer (Node.js, React, Typescript, Java, Kotlin)",
+      "company": "thoughtworks",
+      "url": "https://jobs.ashbyhq.com/thoughtworks/661c5ab0-3c75-4f42-9038-dec31a92a6f0",
+      "location": "Ho Chi Minh City",
+      "score": 1,
+      "source": "company",
+      "dedupe_key": "ashby:thoughtworks:661c5ab0-3c75-4f42-9038-dec31a92a6f0"
     }
   ],
   "engineering_manager": [
